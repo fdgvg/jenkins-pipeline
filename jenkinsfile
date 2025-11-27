@@ -18,17 +18,11 @@ stage('Build Code')
     }
   }
 
-stage('Deploy Code') {
-    steps {
-        deploy adapters: [
-            tomcat9(
-                credentialsId: 'tomcatcredentials',
-                path: '',
-                url: 'http://localhost:8080/'
-            )
-        ],
-        contextPath: null,
-        war: '**/*.war'
+stage('Deploy Code')
+  {
+    steps{
+      deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'localhost:8080/')], contextPath: null, war: '**/*.war'
+    }
   }
 }
 
